@@ -4,13 +4,14 @@
       <Menu_head></Menu_head>
     </el-header>
     <el-container>
-      <Entrys ></Entrys>
+      <Editor></Editor>
     </el-container>
   </div>
 </template>
 
 <script>
-  import Entrys from "./components/question/question_list"
+  import Editor from "./components/question/editor"
+  import Entry from "./components/question/entry"
   import Menu_head from "./components/menu/menu_head";
   import ElHeader from "element-ui/packages/header/src/main";
   import ElContainer from "element-ui/packages/container/src/main";
@@ -20,7 +21,8 @@
       ElContainer,
       ElHeader,
       Menu_head,
-      Entrys
+      Entry,
+      Editor
     },
     data()
     {

@@ -6,13 +6,13 @@
       <el-button size="small" class="b" type="warning">修改</el-button>
       <el-button size="small" class="b" type="danger">删除</el-button>
       <el-row id="con">
-        {{content.content}}
+        <div v-html="content.content"></div>
       </el-row>
       <br><hr>
       <p class="decp"> 历次重做答案：</p>
         <div id="ans" v-for="item in content.ans">
           <el-row>
-            {{item}}
+            <div v-html="item"></div>
           </el-row>
         </div>
       <br><hr>
