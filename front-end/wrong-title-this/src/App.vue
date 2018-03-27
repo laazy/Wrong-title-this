@@ -3,13 +3,16 @@
     <el-header>
       <Menu_head></Menu_head>
     </el-header>
-    <el-container>
-      <Editor></Editor>
+    <el-container id="con">
+      <Redo></Redo>
+      <EntryList></EntryList>
     </el-container>
   </div>
 </template>
 
 <script>
+  import EntryList from "./components/question/question_list"
+  import Redo from "./components/question/redo"
   import Editor from "./components/question/editor"
   import Entry from "./components/question/entry"
   import Menu_head from "./components/menu/menu_head";
@@ -22,7 +25,9 @@
       ElHeader,
       Menu_head,
       Entry,
-      Editor
+      Editor,
+      Redo,
+      EntryList
     },
     data()
     {
@@ -37,4 +42,7 @@
 #app {
 
 }
+  #con{
+    width:650px;
+  }
 </style>

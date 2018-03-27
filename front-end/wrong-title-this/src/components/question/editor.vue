@@ -32,7 +32,6 @@
       },
       methods:{
         textChange(){
-          console.log(this.content1);
           this.pass_data.content=this.content1;
         }
       }
