@@ -1,7 +1,7 @@
 <template>
   <div id="reg">
     <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
-      <el-form-item label="用户名" prop="username"  >
+      <el-form-item label="用户名" prop="username" v-if="mode" >
         <el-input v-model="ruleForm2.username" auto-complete="off"></el-input>
       </el-form-item>
       <el-form-item label="密码" prop="pass">
@@ -49,10 +49,10 @@
         }
       };
       var validateUName = (rule, value, callback) => {
-        //后期加入用户名雅验证
+        //后期加入用户名验证
         if (value === 'username') {
           callback(new Error('该用户名已被占用'));
-        } else if (value === ''){
+        } else if (value === '' || value === undefined){
           callback(new Error('必须输入用户名'));
         } else {
           callback();
@@ -67,10 +67,10 @@
       };
       return {
         ruleForm2: {
-          username:'',
-          pass: '',
+          username:this.username,
+          pass: "",
           checkPass: '',
-          phonenumber:''
+          phonenumber:this.phone
         },
         rules2: {
           username: [
@@ -102,7 +102,8 @@
       resetForm(formName) {
         this.$refs[formName].resetFields();
       }
-    }
+    },
+    props:["username","phone", "mode"]
   }
 </script>
 

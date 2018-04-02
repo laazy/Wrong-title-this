@@ -1,6 +1,6 @@
 <template>
   <div id="menu_head">
-    <el-menu id="menu" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect"
+    <el-menu id="menu" :default-active="selected" class="el-menu-demo" mode="horizontal" @select="handleSelect"
              text-color="#000"
              active-text-color="#ffd04b">
       <el-menu-item index="1">
@@ -12,25 +12,32 @@
         个人设置
       </el-menu-item>
       <Person id="person"></Person>
-      <Search id="search"></Search>
     </el-menu>
   </div>
 </template>
 
 <script>
   import Person from "./person"
-  import Search from "./search"
   import ElMenu from "element-ui/packages/menu/src/menu";
     export default {
       name: "menu_head",
       components:{
-        ElMenu,
-        Person, Search},
+        ElMenu, Person
+      },
       data () {
         return {
-          theme1: 'dark'
+          selected:'1'
+        }
+      },
+      methods:{
+        handleSelect(key){
+          if (key === '4')
+            this.$router.push("/main/setting/")
+          if (key === '1')
+            this.$router.push("/main/question/")
         }
       }
+
     }
 </script>
 

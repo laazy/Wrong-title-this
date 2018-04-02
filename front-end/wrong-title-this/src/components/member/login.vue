@@ -8,7 +8,7 @@
         <el-input type="password" v-model="pass" auto-complete="off"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm2')">提交</el-button>
+        <el-button type="primary" @click="submitForm()">提交</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -19,31 +19,15 @@
   export default {
     name:"login",
     data() {
-      var validatePass = (rule, value, callback) => {
-        if (value === '') {
-          callback(new Error('请输入密码'));
-        } else {
-          if (this.ruleForm2.pass !== '')
-            return true;
-          callback();
-        }
-      };
       return {
         pass: '',
         name: ''
       };
     },
     methods: {
-      submitForm(formName) {
-        this.$refs[formName].validate((valid) => {
-          if (valid) {
-            alert('submit!');
-          } else {
-            console.log('error submit!!');
-            return false;
-          }
-        });
-      }
+      submitForm() {
+          this.$router.push("/main/question");
+      },
     }
   }
 </script>

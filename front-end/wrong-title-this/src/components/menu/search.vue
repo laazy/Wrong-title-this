@@ -4,17 +4,21 @@
       <Option value="text">文本搜索</Option>
       <Option value="re">正则匹配</Option>
     </Select>
-    <Button slot="append" icon="ios-search"></Button>
+    <Button slot="append" icon="ios-search" @click="search" ></Button>
   </Input>
 </template>
 <script>
     export default {
-      name: "search"
-      ,
+      name: "search",
       data() {
         return {
-          value:'',
-          select:"text"
+          value: '',
+          select: "text",
+        }
+      },
+      methods: {
+        search() {
+          this.$emit("search", this.value, this.select);
         }
       }
     }
@@ -22,6 +26,6 @@
 
 <style scoped>
   #search{
-    width:500px;
+    width:650px;
   }
 </style>

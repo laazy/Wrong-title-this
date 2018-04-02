@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import VueRouter from 'vue-router';
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
 import ElementUI from 'element-ui';
@@ -12,13 +11,12 @@ import 'quill/dist/quill.snow.css'
 
 Vue.config.productionTip = false
 Vue.use(iView);
-Vue.use(VueRouter);
 Vue.use(ElementUI);
 Vue.use(vueQuilEditor);
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router,
+  router: router,
   render: h => h(App)
 })
